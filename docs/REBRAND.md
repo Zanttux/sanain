@@ -224,8 +224,8 @@ which the terminal does not have, and reading the window through the
 Accessibility API needs a permission it does not have either. The window
 title and About therefore still need a look by a person (expected: title
 "notes.txt — Text³", About with the lockup on a white plate); the
-existing `docs/screenshots/*.png` still show the old name in the title bar
-and should be retaken.
+README and website screenshots were retaken with
+`scripts/screenshots/shoot.py` on 2026-11-28 (#205).
 
 Not tested here: Windows (installer, registry, icon embedding, wizard
 artwork) and Linux (deb, desktop entry, hicolor icons, `sanain` symlink)

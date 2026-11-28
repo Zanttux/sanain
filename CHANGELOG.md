@@ -4,6 +4,11 @@ All notable changes are listed here. Versions follow Semantic Versioning.
 
 ## [Unreleased]
 
+### Changed
+- README and website screenshots retaken from a Text³ build; they no
+  longer show the old name. `scripts/screenshots/shoot.py` retakes them
+  with an empty config and sample files (#205).
+
 ### Added
 - App Store build: files you opened come back after a restart inside the
   sandbox. Open Recent, session restore and hot exit keep access through
