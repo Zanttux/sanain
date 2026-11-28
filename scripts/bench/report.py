@@ -132,7 +132,9 @@ def large_files(w):
         "characters and scroll steps, 3 runs) on Linux under Xvfb, Windows and "
         "macOS, and fails when a median exceeds `bench/budgets.json`. Hosted "
         "runners paint in software, so their *on screen* times are not comparable "
-        "with these.",
+        "with these. On the Windows runner (Direct3D's software adapter, about "
+        "200 ms per frame) the end of a find or filter is noticed a frame later, "
+        "so it has its own looser limits (`workloads_by_os`).",
         "",
     ]
     return out

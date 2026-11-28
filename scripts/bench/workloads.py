@@ -264,10 +264,21 @@ def machine():
     return info
 
 
+def os_key():
+    if os.name == "nt":
+        return "windows"
+    return "macos" if sys.platform == "darwin" else "linux"
+
+
 def check(results, budgets):
     """Compare each workload's median against bench/budgets.json."""
     over = []
-    table = budgets.get("workloads", {})
+    table = {k: dict(v) for k, v in budgets.get("workloads", {}).items()
+             if isinstance(v, dict)}
+    # Per-platform limits replace the common ones metric by metric.
+    for name, limits in budgets.get("workloads_by_os", {}).get(os_key(), {}).items():
+        if isinstance(limits, dict):
+            table.setdefault(name, {}).update(limits)
     for name, limits in table.items():
         if name.startswith("_") or name not in results["workloads"]:
             continue

@@ -43,7 +43,7 @@ Typing and scrolling: *app* is the time from the frame's input to the end of Tex
 
 Measured on commit 0444bfd plus the perf/workloads branch (benchmark driver and the faster line-ending check). type-50mb with 0444bfd's line-ending check, same machine, 5 runs: ui_ms_p95 median 29.7 ms, frame_ms_p95 30.2 ms, peak RSS 422 MiB.
 
-CI runs a smaller set (`--quick`: 200 MB log, 50 MB find, 100 typed characters and scroll steps, 3 runs) on Linux under Xvfb, Windows and macOS, and fails when a median exceeds `bench/budgets.json`. Hosted runners paint in software, so their *on screen* times are not comparable with these.
+CI runs a smaller set (`--quick`: 200 MB log, 50 MB find, 100 typed characters and scroll steps, 3 runs) on Linux under Xvfb, Windows and macOS, and fails when a median exceeds `bench/budgets.json`. Hosted runners paint in software, so their *on screen* times are not comparable with these. On the Windows runner (Direct3D's software adapter, about 200 ms per frame) the end of a find or filter is noticed a frame later, so it has its own looser limits (`workloads_by_os`).
 
 ## Over time
 

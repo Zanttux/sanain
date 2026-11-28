@@ -78,7 +78,8 @@ jobs:
   # CI set is smaller than the full one (200 MB log instead of 1 GB, 50 MB
   # find, 100 typed characters) and the budgets are generous: hosted
   # runners are slow, shared and have no GPU (Linux: Xvfb and Mesa's
-  # software Vulkan; Windows: Direct3D's software adapter).
+  # software Vulkan; Windows: Direct3D's software adapter at ~200 ms per
+  # frame, with its own limits under workloads_by_os).
   workloads:
     name: workloads (${{ matrix.os }})
     strategy:
